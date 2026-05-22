@@ -1334,3 +1334,84 @@ body::after {
   .hero-schedule { flex-wrap: wrap; justify-content: center; }
   .sched-item    { min-width: 120px; flex: 0 0 calc(50% - 6px); }
 }
+
+/* ══════════════════════════════════════
+   MEJORAS UX — Zona de pago, hero fecha,
+   colaboradores y copy de boletas
+══════════════════════════════════════ */
+
+/* ── Hero date badge — más grande y visible ── */
+.hero-date {
+  font-size: clamp(.85rem, 2.2vw, 1.1rem);   /* antes: .72rem → 1.1rem máx */
+  padding: 10px 28px;                          /* antes: 6px 22px */
+  letter-spacing: 6px;
+  border-width: 1.5px;
+}
+
+/* ── Espacio debajo del logo FE ── */
+.hero-logo {
+  margin-bottom: clamp(22px, 4vw, 36px);      /* antes: clamp(14px, 2.5vw, 22px) */
+}
+
+/* ── Logos colaboradores — más grandes ── */
+.colab-img {
+  height: clamp(46px, 8vw, 64px);             /* antes: clamp(34px, 6vw, 46px) */
+}
+.colab-img.bau {
+  height: clamp(56px, 9vw, 76px);             /* antes: clamp(42px, 7vw, 56px) */
+}
+.colab-img.circo {
+  height: clamp(50px, 8vw, 68px);
+}
+.colab-item {
+  width: 120px;                                /* antes: 100px */
+}
+.colab-label {
+  font-size: .65rem;                           /* antes: .58rem */
+  letter-spacing: 2px;
+}
+
+/* ── Copy zona de pago ── */
+
+/* Texto de ayuda arriba del selector */
+.boleta-ux-hint {
+  font-family: var(--font-t);
+  font-size: clamp(.78rem, 2vw, .92rem);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--dorado);
+  background: rgba(244,180,0,.08);
+  border: 1px solid rgba(244,180,0,.22);
+  border-left: 3px solid var(--dorado);
+  padding: 12px 16px;
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.6;
+}
+.boleta-ux-hint strong {
+  color: #fff;
+}
+.boleta-ux-hint span {
+  color: var(--t3);
+  font-size: .85em;
+  font-weight: 400;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Nota bajo el selector de boletas */
+.boleta-ux-max {
+  font-size: clamp(.68rem, 1.6vw, .78rem);
+  color: var(--t3);
+  letter-spacing: 1px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.boleta-ux-max::before {
+  content: '🎟';
+  font-size: .9rem;
+}
