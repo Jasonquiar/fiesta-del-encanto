@@ -582,6 +582,12 @@ body::after {
   filter: none;
   opacity: .85;
 }
+
+/* Circo Medellín — mantiene gradientes originales */
+.colab-img.circo {
+  filter: none;
+  opacity: .9;
+}
 .colab-label {
   font-family: var(--font-t);
   font-size: .58rem;
@@ -1078,9 +1084,30 @@ body::after {
   height: clamp(38px, 6vw, 50px);
   object-fit: contain;
   opacity: .72;
+  filter: brightness(0) invert(1);
   transition: opacity .3s;
   filter: brightness(0) invert(1);
 }
+/* Logo FE — mantiene colores originales */
+.footer-li.fe {
+  height: clamp(48px, 7vw, 62px);
+  filter: none;
+  opacity: .9;
+}
+
+/* BAU — mantiene colores originales */
+.footer-li.bau {
+  height: clamp(44px, 7vw, 56px);
+  filter: none;
+  opacity: .85;
+}
+
+/* Circo Medellín — mantiene gradientes originales */
+.footer-li.circo {
+  filter: none;
+  opacity: .9;
+}
+
 .footer-li:hover { opacity: 1; }
 .footer-li.bau   { height: clamp(44px, 7vw, 56px); filter: none; opacity: .85; }
 .footer-li.fe    { height: clamp(48px, 7vw, 62px); filter: none; opacity: .9; }
