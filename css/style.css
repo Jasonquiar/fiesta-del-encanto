@@ -484,7 +484,7 @@ body::after {
   background: conic-gradient(
     from 180deg,
     transparent 82%,
-    rgba(244,180,0,.04) 90%,
+    rgba(228, 227, 226, 0.11) 95%,
     transparent 100%
   );
   top: -80px;
@@ -519,7 +519,7 @@ body::after {
 
 .hero-date {
   font-family: var(--font-t);
-  font-size: clamp(12rem, 6vw, 1.4rem);
+  font-size: clamp(1rem, 6vw, 1.4rem);
   font-weight: 700;
   min-width: 400px;
   color: var(--dorado);
