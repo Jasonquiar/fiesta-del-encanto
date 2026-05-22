@@ -23,9 +23,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Oswald:wght@400;500;600;700&display=swap');
 
 /* ══════════════════════════════════════
-   1. TOKENS DE DISEÑO
-   Variables globales de color, tipografía, espaciado y efectos
-   Cambia un valor aquí y afecta toda la página
+   1. TOKENS DE DISEÑO        ← variables globales (:root) 
 ══════════════════════════════════════ */
 :root {
   /* Brand colors */
@@ -62,9 +60,7 @@
 }
 
 /* ══════════════════════════════════════
-   2. RESET & BASE
-   Elimina estilos por defecto del navegador y define
-   la base visual del body, imágenes, links y botones
+   RESET & BASE            ← estilos base del body, img, a 
 ══════════════════════════════════════ */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -116,9 +112,7 @@ body::after {
 }
 
 /* ══════════════════════════════════════
-   3. LAYOUT UTILITIES
-   Contenedor principal que centra y limita el ancho
-   del contenido en todas las secciones
+   3. LAYOUT UTILITIES        ← .container
 ══════════════════════════════════════ */
 .container {
   max-width: var(--max-w);
@@ -127,10 +121,7 @@ body::after {
 }
 
 /* ══════════════════════════════════════
-   4. DESIGN COMPONENTS
-   Piezas reutilizables en toda la página:
-   títulos de sección, tags, botones, separadores,
-   estrellas decorativas y animación scroll reveal
+   DESIGN COMPONENTS
 ══════════════════════════════════════ */
 
 /* Section label */
@@ -278,10 +269,7 @@ body::after {
 .rd5 { transition-delay: .5s; }
 
 /* ══════════════════════════════════════
-   5. ANIMATIONS
-   Definición de todas las animaciones CSS:
-   twinkle (estrellas), fadeUp (entrada), scrollPulse,
-   swayLight (focos) y fadeUpCenter (scroll indicator)
+   ANIMATIONS
 ══════════════════════════════════════ */
 @keyframes twinkle {
   from { opacity: .25; transform: scale(.8); }
@@ -312,10 +300,41 @@ body::after {
 }
 
 /* ══════════════════════════════════════
-   6. NAVBAR
-   Barra de navegación fija en la parte superior.
-   Cambia de apariencia al hacer scroll (clase .scrolled)
-   e incluye el menú hamburguesa para móvil
+ ── Botón flotante Instagram ──
+ ══════════════════════════════════════ */
+.float-ig {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 50px;
+  font-family: var(--font-t);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(220,39,67,.5);
+  transition: transform .3s, box-shadow .3s;
+}
+.float-ig:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 28px rgba(220,39,67,.6);
+}
+
+/* En móvil solo muestra el ícono */
+@media (max-width: 600px) {
+  .float-ig span { display: none; }
+  .float-ig { padding: 14px; border-radius: 50%; }
+}
+
+/* ══════════════════════════════════════
+   NAVBAR
 ══════════════════════════════════════ */
 .navbar {
   position: fixed;
@@ -388,10 +407,7 @@ body::after {
 }
 
 /* ══════════════════════════════════════
-   7. HERO
-   Sección principal a pantalla completa con la foto
-   del techo del circo, el logo, horarios, botones
-   de compra y los logos de los colaboradores
+   HERO
 ══════════════════════════════════════ */
 .hero {
   position: relative;
@@ -704,9 +720,7 @@ body::after {
 }
 
 /* ══════════════════════════════════════
-   8. PROGRAMA / HORARIO
-   Sección con las 3 tarjetas del timeline del día:
-   3PM Bazar · 6PM Selector · 8PM Shows
+   PROGRAMA / HORARIO
 ══════════════════════════════════════ */
 .section-schedule {
   padding: var(--section-py) 0;
@@ -752,10 +766,7 @@ body::after {
 .tl-desc  { font-size: clamp(.72rem, 1.8vw, .83rem); color: var(--t3); line-height: 1.6; }
 
 /* ══════════════════════════════════════
-   9. ARTISTAS
-   Sección line-up con tarjeta destacada de Indub
-   y grilla de 5 disciplinas circenses:
-   Lira · Pole · Aéreo · Malabares · Acroyoga
+   ARTISTAS
 ══════════════════════════════════════ */
 .section-art {
   padding: var(--section-py) 0;
@@ -855,10 +866,7 @@ body::after {
 .disc-desc   { font-size: clamp(.66rem, 1.5vw, .76rem); color: var(--t3); line-height: 1.55; }
 
 /* ══════════════════════════════════════
-   10. BAZAR
-   Sección del mercado artístico que abre a las 3PM.
-   Incluye texto descriptivo y grilla de 6 categorías
-   de productos: vino, cerveza, arte, joyería y más
+   BAZAR
 ══════════════════════════════════════ */
 .section-bazar {
   padding: var(--section-py) 0;
@@ -926,10 +934,7 @@ body::after {
 .bazar-item .bd { font-size: clamp(.62rem, 1.5vw, .72rem); color: var(--t3); line-height: 1.45; }
 
 /* ══════════════════════════════════════
-   11. BOLETAS
-   Sección de compra con 4 tarjetas tipo tiquete
-   para 1, 2, 3 y 4 personas a $25.000 COP c/u.
-   Al hacer clic se sincroniza con el formulario
+   BOLETAS
 ══════════════════════════════════════ */
 .section-bol {
   padding: var(--section-py) 0;
@@ -1056,10 +1061,7 @@ body::after {
 .bol-note strong { color: var(--dorado); }
 
 /* ══════════════════════════════════════
-   12. FORMULARIO DE COMPRA
-   Caja de pago con campos de nombre, email y selector
-   de boletas. Al enviar hace POST a php/checkout.php
-   y redirige al usuario al checkout de Wompi
+   FORMULARIO DE COMPRA
 ══════════════════════════════════════ */
 .section-compra {
   padding: clamp(48px,7vw,68px) 0 clamp(68px,9vw,100px);
@@ -1158,10 +1160,7 @@ body::after {
 }
 
 /* ══════════════════════════════════════
-   13. FOOTER
-   Pie de página con logos de las 4 marcas,
-   links a redes sociales con íconos SVG,
-   dirección del evento y créditos
+   FOOTER
 ══════════════════════════════════════ */
 .footer {
   padding: clamp(40px,6vw,56px) 0 clamp(20px,4vw,28px);
@@ -1212,54 +1211,13 @@ body::after {
 .footer-org  { font-family: var(--font-t); font-size: clamp(.6rem, 1.5vw, .72rem); letter-spacing: 3px; color: var(--t3); margin-bottom: 16px; line-height: 1.8; }
 .footer-redes { display: flex; justify-content: center; gap: 18px; margin-bottom: 22px; flex-wrap: wrap; }
 .footer-redes a { font-family: var(--font-t); font-size: clamp(.7rem, 1.8vw, .82rem); font-weight: 600; letter-spacing: 2px; color: var(--t3); transition: color .3s; }
-.footer-redes a:hover { color: var(--dorado); } */
-
+.footer-redes a:hover { color: var(--dorado); }
 .footer-addr { font-size: clamp(.7rem, 1.8vw, .8rem); color: var(--t3); letter-spacing: 1px; margin-bottom: 20px; line-height: 1.9; }
 .footer-addr strong { color: var(--t2); }
 .footer-copy { font-size: clamp(.58rem, 1.5vw, .68rem); color: #3a2a1a; letter-spacing: 1px; }
 
 /* ══════════════════════════════════════
-   13B. BOTÓN FLOTANTE INSTAGRAM
-   Botón fijo en la esquina inferior derecha
-   que abre el DM de Instagram directamente
-══════════════════════════════════════ */
-.float-ig {
-  position: fixed;
-  bottom: 28px;
-  right: 24px;
-  z-index: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 50px;
-  font-family: var(--font-t);
-  font-size: .85rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(220,39,67,.5);
-  transition: transform .3s, box-shadow .3s;
-}
-.float-ig:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 8px 28px rgba(220,39,67,.6);
-}
-
-/* En móvil solo muestra el ícono */
-@media (max-width: 600px) {
-  .float-ig span { display: none; }
-  .float-ig { padding: 14px; border-radius: 50%; }
-}
-
-
-/* ══════════════════════════════════════
-   14. RESPONSIVE — TABLET  601–960px
-   Ajustes para pantallas medianas: timeline en 1 columna,
-   artistas en 3 columnas, boletas en 2 columnas,
-   Indub featured en columna vertical
+   RESPONSIVE — TABLET  601–960px
 ══════════════════════════════════════ */
 @media (max-width: 960px) {
   .timeline        { grid-template-columns: 1fr; gap: 14px; }
@@ -1272,10 +1230,7 @@ body::after {
 }
 
 /* ══════════════════════════════════════
-   14B. RESPONSIVE — MOBILE  ≤ 600px
-   Ajustes para celular: menú hamburguesa visible,
-   botones full-width, grillas de 2 columnas,
-   formulario con padding reducido
+   RESPONSIVE — MOBILE  ≤ 600px
 ══════════════════════════════════════ */
 @media (max-width: 600px) {
   /* Navbar */
@@ -1313,9 +1268,7 @@ body::after {
 }
 
 /* ══════════════════════════════════════
-   14C. RESPONSIVE — SMALL MOBILE  ≤ 380px
-   Ajustes para pantallas muy pequeñas:
-   todo en 1 columna, horarios en 2 columnas
+   RESPONSIVE — SMALL MOBILE  ≤ 380px
 ══════════════════════════════════════ */
 @media (max-width: 380px) {
   .art-disc-grid { grid-template-columns: 1fr; }
