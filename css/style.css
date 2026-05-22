@@ -273,6 +273,17 @@ body::after {
   50%       { transform: rotate(16deg); }
 }
 
+@keyframes fadeUpCenter {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 /* ══════════════════════════════════════
    NAVBAR
 ══════════════════════════════════════ */
@@ -360,6 +371,41 @@ body::after {
   padding: clamp(90px,12vw,120px) var(--pad-x) clamp(60px,8vw,80px);
 }
 
+.hero-scroll {
+  position: absolute;
+  bottom: clamp(50px, 2.5vw, 22px);
+  left: 50%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  animation: fadeUpCenter 1s 1s ease both;;
+}
+
+.hero-scroll-inner {
+
+  animation: fadeUpCenter 1s 1s ease both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* ← centra los hijos horizontalmente */
+  justify-content: center;
+  gap: 5px;
+  width: 100%;          /* ← ocupa todo el ancho del padre */
+  text-align: center;   /* ← centra el texto */
+}
+
+.hero-scroll-inner span {
+  font-family: var(--font-t);
+  font-size: .58rem;
+  letter-spacing: 3px;
+  color: var(--dorado);
+  opacity: .6;
+  display: block;       /* ← fuerza el span a comportarse como bloque */
+  text-align: center;   /* ← centra el texto del span */
+  width: 100%;          /* ← ocupa todo el ancho */
+}
+
 /* Tent photo background — shows only fabric + bulbs, not crowd */
 .hero-bg {
   position: absolute;
@@ -431,6 +477,7 @@ body::after {
 
 .hero-content {
   position: relative;
+  margin-bottom: clamp(25px, 8vw, 20px); /* ← empuja el scroll hacia abajo */
   z-index: 4;
   max-width: 860px;
   width: 100%;
